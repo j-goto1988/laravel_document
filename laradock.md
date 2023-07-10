@@ -1,9 +1,7 @@
 1.docker_laravel直下で下記を実行
-
 git clone https://github.com/Laradock/laradock.git
 
 2.laradock直下で下記を実行
-cd laradock
 cp .env.example .env
 
 3.envの下記を変更
@@ -29,7 +27,7 @@ composer create-project laravel/laravel test "10.*"
 7.laradock直下のapache2/sitesで下記を実行
 cp sample.conf.example sample.conf
 
-8.sample.confを下記のように変更するs
+8.sample.confを下記のように変更する
 <VirtualHost *:80>
   ServerName localhost
   DocumentRoot /var/www/test/public/
