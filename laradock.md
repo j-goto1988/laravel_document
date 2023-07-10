@@ -20,12 +20,11 @@ docker-compose up -d apache2 mysql phpmyadmin redis workspace
 http://localhost/
 
 5.下記でworkspaceに入る
-winpty docker exec -it 2c646a1fb58e bash
+winpty docker exec -it プロセスID bash（winptyはWindowsのみ必要）
+プロセスIDはdocker psで調べる
 
 6.workspaceに入り、/var/www直下で下記を実行
 composer create-project laravel/laravel test "10.*"
-
-
 
 7.laradock直下のapache2/sitesで下記を実行
 cp sample.conf.example sample.conf
@@ -51,7 +50,6 @@ cp sample.conf.example sample.conf
 
 8.停止して、再度起動
 docker-compose stop
-docker-compose up -d apache2 mysql phpmyadmin redis workspace
 docker-compose up -d --build apache2 mysql phpmyadmin redis workspace
 
 
@@ -61,11 +59,11 @@ The stream or file "/var/www/test/storage/logs/laravel.log" could not be opened 
 workspaceに入り、/var/www/test直下で下記を実行
 chmod -R 777 storage
 
-10.C:\docker_laravel\test\test\config\app.php
+10.C:\docker_laravel\test\test\config\app.phpを修正
 'timezone' => 'Asia/Tokyo',
 'locale' => 'ja',
 
-11.C:\docker_laravel\test\test\.env
+11.C:\docker_laravel\test\test\.envを修正
 APP_DEBUG=true
 
 DB_CONNECTION=mysql
